@@ -1,0 +1,60 @@
+@import 'tailwindcss';
+
+@theme {
+  /* Atlantis palette: abyss background, electric-blue accent, cyan highlight */
+  --color-brand: var(--color-blue-500);
+  --color-brand-strong: var(--color-blue-600);
+  --color-brand-glow: var(--color-cyan-400);
+  --color-abyss: #020617; /* slate-950 */
+  --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
+}
+
+/* Hide scrollbars while keeping the element scrollable (media rows) */
+@utility scrollbar-hide {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+html,
+body,
+#root {
+  min-height: 100%;
+}
+
+html {
+  color-scheme: dark;
+  /* Page scrollbar: deep navy track, blue thumb */
+  scrollbar-color: var(--color-blue-800) var(--color-abyss);
+  scrollbar-width: thin;
+}
+
+html::-webkit-scrollbar {
+  width: 10px;
+}
+html::-webkit-scrollbar-track {
+  background: var(--color-abyss);
+}
+html::-webkit-scrollbar-thumb {
+  background: var(--color-blue-900);
+  border: 2px solid var(--color-abyss);
+  border-radius: 9999px;
+}
+html::-webkit-scrollbar-thumb:hover {
+  background: var(--color-blue-600);
+}
+
+body {
+  @apply bg-abyss text-white antialiased;
+}
+
+::selection {
+  @apply bg-blue-600 text-white;
+}
+
+/* Keyboard focus ring, app-wide default */
+:focus-visible {
+  outline-color: var(--color-blue-500);
+}
